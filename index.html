@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/styles/spinner.css" />
+    <link rel="stylesheet" href="/styles/styles.css" />
+    <title>Wheather app</title>
+  </head>
+  <body>
+    <div id="loaderContainer" class="loaderCont">
+      <div class="loader"></div>
+    </div>
+    <div id="widgetError" class="widgetError">
+      <p>
+        No se pudo obtener la información del clima seguramente no introdujo
+        bien la ciudad, si necesta espeficar el pais ponga una , delante ejemplo
+        roma,it
+      </p>
+    </div>
+   
+    <div id="card" class="card">
+      <div class="inputContainer">
+        <input type="search" placeholder="Roma, It" />
+      </div>
+      <div class="container-info">
+        <div class="country-info">
+          <p id="country"></p>
+        </div>
+        <div class="weather-info">
+          <p id="descriptionDay"></p>
+          <p id="tempDay"></p>
+        </div>
+        <div class="weather-info2">
+          <p id="wind"></p>
+          <p id="humidity"></p>
+        </div>
+      </div>
+      <div class="svg">
+        <img id="svgImg" src="" alt="" />
+      </div>
+    </div>
+    <a class="github" href="https://github.com/Fran-Merce" target="_BLANK"><img src="assets/gitHub.png" alt=""></a>
+    <script src="index.js"></script>
+  </body>
+</html>
