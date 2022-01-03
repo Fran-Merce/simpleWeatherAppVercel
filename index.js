@@ -13,13 +13,13 @@ window.addEventListener("load", () => {
     },
     (error) => {
       if (error.code == error.PERMISSION_DENIED){
-
         const URL = `https://api.openweathermap.org/data/2.5/weather?q=argentina&lang=es&units=metric&appid=4e1567a23c7ba9bb05bb3eb7d19d4c6f`;
         weatherFetch(URL);
     }
     });
   }
   
+ 
 });
 
 const weatherFetch = (URL) => {
@@ -37,6 +37,7 @@ const weatherFetch = (URL) => {
       }
     })
     .catch((error) => {
+      console.log(error);
       if (error) {
         document.querySelector("#widgetError").style.transform =
           "translateY(0px)";
@@ -45,7 +46,7 @@ const weatherFetch = (URL) => {
         setTimeout(() => {
           document.querySelector("#widgetError").style.transform ="translateY(-350%)";
           document.querySelector("#widgetError").style.visibility = "hidden";
-        }, 3000);
+        }, 4000);
       }
     });
 };
@@ -57,6 +58,7 @@ inputSearch.addEventListener("keyup", (e) => {
     const URL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&lang=es&units=metric&appid=4e1567a23c7ba9bb05bb3eb7d19d4c6f`;
     weatherFetch(URL);
     loader.classList.toggle("loaderHidden");
+    
   }
 });
 
@@ -66,7 +68,7 @@ const getTemperature = (data) => {
   let { temp } = data.main;
   temp = Math.round(temp);
   const { description } = data.weather[0];
-  getTemp.textContent = temp + " °C";
+  getTemp.textContent = `Temperatura ${temp} °C`;
   descriptionDay.textContent = description;
 };
 
@@ -125,3 +127,4 @@ const getSvg = (data) => {
       body.style.backgroundImage = "url(assets/clear.jpg)";
   }
 };
+
