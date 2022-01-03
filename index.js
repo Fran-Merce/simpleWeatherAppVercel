@@ -20,9 +20,9 @@ const weatherFetch = (URL) => {
       return response.json();
     })
     .then((data) => {
+      getSvg(data)
       getCountry(data);
       getTemperature(data);
-      getSvg(data);
       getHumidityAndWind(data);
       if (data) {
         loader.classList.toggle("loaderHidden");
@@ -45,7 +45,7 @@ const weatherFetch = (URL) => {
 const inputSearch = document.querySelector("input");
 inputSearch.addEventListener("keyup", (e) => {
   if (e.key === "Enter") {
-    let city = inputSearch.value;
+    let city = inputSearch.value.replace(/" "/i, "");
     const URL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&lang=es&units=metric&appid=4e1567a23c7ba9bb05bb3eb7d19d4c6f`;
     weatherFetch(URL);
     loader.classList.toggle("loaderHidden");
