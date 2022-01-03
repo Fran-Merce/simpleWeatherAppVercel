@@ -10,8 +10,16 @@ window.addEventListener("load", () => {
       lon = position.coords.longitude;
       const URL = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&lang=es&units=metric&appid=4e1567a23c7ba9bb05bb3eb7d19d4c6f`;
       weatherFetch(URL);
+    },
+    (error) => {
+      if (error.code == error.PERMISSION_DENIED){
+
+        const URL = `https://api.openweathermap.org/data/2.5/weather?q=argentina&lang=es&units=metric&appid=4e1567a23c7ba9bb05bb3eb7d19d4c6f`;
+        weatherFetch(URL);
+    }
     });
   }
+  
 });
 
 const weatherFetch = (URL) => {
