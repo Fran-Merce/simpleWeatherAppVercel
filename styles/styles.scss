@@ -194,11 +194,15 @@ body {
 }
 
 @media screen and (max-width: 600px) {
+<<<<<<< HEAD
   body {
     max-height: 100vh;
     
     overflow: hidden;
   }
+=======
+  
+>>>>>>> 05d431fd8b29dc655039ec6d321800cd5b167817
 
   .card {
     margin: 1rem;
