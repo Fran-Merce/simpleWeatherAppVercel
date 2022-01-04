@@ -245,7 +245,8 @@ body {
 
 @media screen and (max-width: 600px) {
   body {
-    min-height: 100vh;
+    max-height: 100vh;
+    overflow: hidden;
   }
   .card {
     margin: 1rem;

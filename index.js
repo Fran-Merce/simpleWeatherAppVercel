@@ -48,7 +48,7 @@ const weatherFetch = (URL) => {
           document.querySelector("#widgetError").style.transform =
             "translateY(-350%)";
           document.querySelector("#widgetError").style.visibility = "hidden";
-        }, 50000);
+        }, 4000);
       }
     });
 };
