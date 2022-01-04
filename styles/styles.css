@@ -14,8 +14,9 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   min-height: 100vh;
   background-size: cover;
   background-position: center;
@@ -43,6 +44,10 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 .card .inputContainer input {
@@ -50,14 +55,14 @@ body {
   height: 30%;
   margin-top: 1rem;
   border-radius: 15px;
-  padding: .5rem;
+  padding: 0.5rem;
   background-color: rgba(255, 255, 255, 0.57);
   border: 2px solid white;
   color: black;
   font-weight: 700;
-  font-family: 'Forum', cursive;
   font-size: 1.2rem;
   text-transform: capitalize;
+  font-family: "Forum", cursive;
 }
 
 .card .inputContainer input:focus {
@@ -82,6 +87,21 @@ body {
   color: rgba(0, 0, 0, 0.542);
 }
 
+.card .inputContainer .errorLenght {
+  display: block;
+  color: red;
+  font-family: "Forum", cursive;
+  margin-top: 0.2rem;
+  height: 2px;
+  visibility: visible;
+  font-weight: 700;
+  font-size: .9rem;
+}
+
+.card .inputContainer .hidden {
+  visibility: hidden;
+}
+
 .card .container-info {
   width: 50%;
   height: 60%;
@@ -103,25 +123,25 @@ body {
   display: inline-block;
   width: 100%;
   font-weight: 500;
-  font-family: 'Poiret One', cursive;
-  margin-left: .3rem;
-  margin-top: .5rem;
+  font-family: "Poiret One", cursive;
+  margin-left: 0.3rem;
+  margin-top: 0.5rem;
 }
 
 .card .container-info .country-info {
   font-size: 2.3rem;
   width: 100%;
-  margin: .6rem;
+  margin: 0.6rem;
 }
 
 .card .container-info .weather-info {
   font-size: 1.5rem;
-  margin: .4rem;
+  margin: 0.4rem;
 }
 
 .card .container-info .weather-info2 {
   font-size: 1.1rem;
-  margin: .4rem;
+  margin: 0.4rem;
 }
 
 .svgCont {
@@ -134,7 +154,7 @@ body {
   width: 100%;
 }
 
-.a {
+.container-main-info {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -183,21 +203,23 @@ body {
 
 .widgetError {
   position: absolute;
-  width: 30%;
-  height: 130px;
+  min-width: 30%;
+  max-width: 50%;
+  min-height: 130px;
   top: 20px;
   padding: 20px;
   padding-top: 2.5rem;
   -webkit-transform: translateY(-450%);
           transform: translateY(-450%);
-  -webkit-transition: all .3s;
-  transition: all .3s;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
   background-color: #ffffffe6;
   border: 1px solid #000000;
   color: black;
   text-align: center;
-  font-family: cursive;
-  font-family: 'Poiret One', cursive;
+  font-size: 1.2rem;
+  font-weight: 700;
+  font-family: "Poiret One", cursive;
   border-radius: 20px;
   visibility: hidden;
 }
@@ -205,16 +227,15 @@ body {
 .github {
   position: absolute;
   width: 100%;
-  bottom: 10px;
-  margin: 1rem;
+  bottom: 5px;
   text-align: center;
 }
 
 .github img {
-  -webkit-transition: -webkit-transform .3s;
-  transition: -webkit-transform .3s;
-  transition: transform .3s;
-  transition: transform .3s, -webkit-transform .3s;
+  -webkit-transition: -webkit-transform 0.3s;
+  transition: -webkit-transform 0.3s;
+  transition: transform 0.3s;
+  transition: transform 0.3s, -webkit-transform 0.3s;
 }
 
 .github img:hover {
@@ -224,36 +245,67 @@ body {
 
 @media screen and (max-width: 600px) {
   body {
-    height: 100vh;
-    overflow: hidden;
+    min-height: 100vh;
   }
   .card {
     margin: 1rem;
+    margin-top: 5rem;
   }
   .card .inputContainer input {
     width: 90%;
     font-size: 1rem;
   }
   .card .svgCont {
-    width: 50%;
+    width: 100%;
+    margin-top: 1em;
+  }
+  .card .svgCont img {
+    width: 40%;
+    text-align: center;
+  }
+  .card .container-main-info {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  .card .container-info {
+    width: 100%;
+    text-align: center;
+  }
+  .card .container-info .country-info p,
+  .card .container-info .weather-info p,
+  .card .container-info .weather-info2 p {
+    display: inline-block;
+    width: 100%;
+    font-weight: 500;
+    font-family: "Poiret One", cursive;
+    margin: 0.3rem 0;
   }
   .card .container-info .country-info {
-    font-size: 1.5rem;
     width: 100%;
-    margin: .6rem;
+    margin: 0;
+    margin-top: 0.3rem;
+  }
+  .card .container-info .country-info p {
+    font-size: 2rem;
+    margin: 0.5 0;
   }
   .card .container-info .weather-info {
-    font-size: 1rem;
-    margin: .6rem;
+    font-size: 1.2rem;
+    margin: 0.6rem;
+  }
+  .card .container-info .weather-info p {
+    font-size: 1.2rem;
   }
   .card .container-info .weather-info2 {
-    font-size: 1rem;
-    margin: .4rem;
+    font-size: 1.2rem;
   }
   .widgetError {
-    width: 300px;
+    max-width: 96%;
+    min-height: 15%;
+    padding: 10px;
     font-size: 1rem;
-    top: 0;
+    top: 5px;
+    z-index: 20;
   }
 }
 /*# sourceMappingURL=styles.css.map */

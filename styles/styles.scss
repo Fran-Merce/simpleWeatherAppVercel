@@ -1,238 +1,276 @@
-
-@import url('https://fonts.googleapis.com/css2?family=Poiret+One&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Forum&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poiret+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Forum&display=swap");
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    min-height: 100vh;
-    background-size: cover;
-    background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-size: cover;
+  background-position: center;
 }
 
 .card {
-    width: 600px;
-    height: 420px;
-    background: rgba(0, 0, 0, 0.248);
-    color: rgb(255, 255, 255);
-    backdrop-filter: blur(5px);
-    border-radius: 10px;
+  width: 600px;
+  height: 420px;
+  background: rgba(0, 0, 0, 0.248);
+  color: rgb(255, 255, 255);
+  backdrop-filter: blur(5px);
+  border-radius: 10px;
 
-    .inputContainer {
+  .inputContainer {
+    width: 100%;
+    height: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    input {
+      width: 70%;
+      height: 30%;
+      margin-top: 1rem;
+      border-radius: 15px;
+      padding: 0.5rem;
+      background-color: rgba(255, 255, 255, 0.57);
+      border: 2px solid rgb(255, 255, 255);
+      color: rgb(0, 0, 0);
+      font-weight: 700;
+      font-size: 1.2rem;
+      text-transform: capitalize;
+      font-family: "Forum", cursive;
+
+      &:focus {
+        border: 2px solid rgb(0, 0, 0);
+        outline: none;
+        background-color: rgb(255, 255, 255);
+      }
+
+      &::placeholder {
+        color: rgba(0, 0, 0, 0.542);
+      }
+    }
+
+    .errorLenght {
+      display: block;
+      color: red;
+      font-family: "Forum", cursive;
+      margin-top: 0.2rem;
+      height: 2px;
+      visibility: visible;
+      font-weight: 700;
+      font-size: .9rem;
+    }
+
+    .hidden {
+      visibility: hidden;
+    }
+  }
+
+  .container-info {
+    width: 50%;
+    height: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .country-info,
+    .weather-info,
+    .weather-info2 {
+      p {
+        display: inline-block;
         width: 100%;
-        height: 25%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-        input {
-            width: 70%;
-            height: 30%;
-            margin-top: 1rem;
-            border-radius: 15px;
-            padding: .5rem;
-            background-color: rgba(255, 255, 255, 0.57);
-            border: 2px solid rgb(255, 255, 255);
-            color: rgb(0, 0, 0);
-            font-weight: 700;
-            font-family: 'Forum', cursive;
-            font-size: 1.2rem;
-            text-transform: capitalize;
-
-            &:focus {
-                border: 2px solid rgb(0, 0, 0);
-                outline: none;
-                background-color: rgb(255, 255, 255);
-            }
-
-            &::placeholder {
-                color: rgba(0, 0, 0, 0.542);
-            }
-
-        }
+        font-weight: 500;
+        font-family: "Poiret One", cursive;
+        margin-left: 0.3rem;
+        margin-top: 0.5rem;
+      }
     }
 
-    .container-info {
-        width: 50%;
-        height: 60%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-
-        .country-info,
-        .weather-info,
-        .weather-info2 {
-            p {
-                display: inline-block;
-                width: 100%;
-                font-weight: 500;
-                font-family: 'Poiret One', cursive;
-                margin-left: .3rem;
-                margin-top: .5rem;
-                
-            }
-
-        }
-
-        .country-info {
-            font-size: 2.3rem;
-            width: 100%;
-            margin: .6rem;
-        }
-
-        .weather-info {
-            font-size: 1.5rem;
-            margin: .4rem;
-
-        }
-
-        .weather-info2 {
-            font-size: 1.1rem;
-            margin: .4rem;
-
-        }
+    .country-info {
+      font-size: 2.3rem;
+      width: 100%;
+      margin: 0.6rem;
     }
+
+    .weather-info {
+      font-size: 1.5rem;
+      margin: 0.4rem;
+    }
+
+    .weather-info2 {
+      font-size: 1.1rem;
+      margin: 0.4rem;
+    }
+  }
 }
-
-
-
-
 
 .svgCont {
+  width: 50%;
+  text-align: center;
+  margin-top: 2rem;
 
-    width: 50%;
-    text-align: center;
-    margin-top: 2rem;
-
-    img {
-        width: 100%;
-    }
-
+  img {
+    width: 100%;
+  }
 }
 
-.a {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 65%;
+.container-main-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 65%;
 }
 
 .loaderCont {
-    position: absolute;
-    width: 100%;
-    height: 100vh;
-    align-items: center;
-    justify-content: center;
-    display: flex;
-    z-index: 10;
-    background-color: black;
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  z-index: 10;
+  background-color: black;
 
-    p {
-        position: absolute;
-        bottom: 100px;
-        margin-left: 2.5rem;
-        display: inline-block;
-        font-size: 3rem;
-        text-align: center;
-    }
+  p {
+    position: absolute;
+    bottom: 100px;
+    margin-left: 2.5rem;
+    display: inline-block;
+    font-size: 3rem;
+    text-align: center;
+  }
 }
 
 .loaderHidden {
-    display: none;
+  display: none;
 
-    .loader__ImgHidden {
-        display: none;
-    }
+  .loader__ImgHidden {
+    display: none;
+  }
 }
 
 .widgetError {
-    position: absolute;
-    width: 30%;
-    height: 130px;
-    top: 20px;
-    padding: 20px;
-    padding-top: 2.5rem;
-    transform: translateY(-450%);
-    transition: all .3s;
-    background-color: #ffffffe6;
-    border: 1px solid #000000;
-    color: rgb(0, 0, 0);
-    text-align: center;
-    font-family: cursive;
-    font-family: 'Poiret One', cursive;
-    border-radius: 20px;
-    visibility: hidden;
+  position: absolute;
+  min-width: 30%;
+  max-width: 50%;
+  min-height: 130px;
+  top: 20px;
+  padding: 20px;
+  padding-top: 2.5rem;
+  transform: translateY(-450%);
+  transition: all 0.3s;
+  background-color: #ffffffe6;
+  border: 1px solid #000000;
+  color: rgb(0, 0, 0);
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: 700;
+  font-family: "Poiret One", cursive;
+  border-radius: 20px;
+  visibility: hidden;
 }
 
 .github {
-    position: absolute;
-    width: 100%;
-    bottom: 10px;
-    margin: 1rem;
-    text-align: center;
+  position: absolute;
+  width: 100%;
+  bottom: 5px;
 
-    img {
-        transition: transform .3s;
-        &:hover {
-            transform: scale(1.2);
-        }
+  text-align: center;
 
+  img {
+    transition: transform 0.3s;
+
+    &:hover {
+      transform: scale(1.2);
     }
+  }
 }
 
-@media screen and (max-width:600px) {
-    body{
-        height: 100vh;
-        overflow: hidden;
-        
-    }
-    .card {
-        margin: 1rem;
+@media screen and (max-width: 600px) {
+  body {
+    min-height: 100vh;
+  }
 
-        .inputContainer {
-            input {
-                width: 90%;
-                font-size: 1rem;
-            }
-        }
+  .card {
+    margin: 1rem;
+    margin-top: 5rem;
 
-        .svgCont {
-            width: 50%;
-        }
-
-        .container-info {
-
-            .country-info {
-                font-size: 1.5rem;
-                width: 100%;
-                margin: .6rem;
-            }
-
-            .weather-info {
-                font-size: 1rem;
-                margin: .6rem;
-
-            }
-
-            .weather-info2 {
-                font-size: 1rem;
-                margin: .4rem;
-
-            }
-        }
-    }
-
-    .widgetError {
-        width: 300px;
+    .inputContainer {
+      input {
+        width: 90%;
         font-size: 1rem;
-        top: 0;
-        
+      }
     }
+
+    .svgCont {
+      width: 100%;
+      margin-top: 1em;
+
+      img {
+        width: 40%;
+        text-align: center;
+      }
+    }
+
+    .container-main-info {
+      flex-wrap: wrap;
+    }
+
+    .container-info {
+      width: 100%;
+      text-align: center;
+
+      .country-info,
+      .weather-info,
+      .weather-info2 {
+        p {
+          display: inline-block;
+          width: 100%;
+          font-weight: 500;
+          font-family: "Poiret One", cursive;
+          margin: 0.3rem 0;
+        }
+      }
+
+      .country-info {
+        width: 100%;
+        margin: 0;
+        margin-top: 0.3rem;
+
+        p {
+          font-size: 2rem;
+          margin: 0.5 0;
+        }
+      }
+
+      .weather-info {
+        font-size: 1.2rem;
+        margin: 0.6rem;
+
+        p {
+          font-size: 1.2rem;
+        }
+      }
+
+      .weather-info2 {
+        font-size: 1.2rem;
+      }
+    }
+  }
+
+  .widgetError {
+    max-width: 96%;
+    min-height: 15%;
+    padding: 10px;
+    font-size: 1rem;
+    top: 5px;
+    z-index: 20;
+  }
 }
