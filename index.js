@@ -32,24 +32,14 @@ const weatherFetch = (URL) => {
       getCountry(data);
       getTemperature(data);
       getHumidityAndWind(data);
-      if (data) {
-        loader.classList.toggle("loaderHidden");
-      }
     })
     .catch((error) => {
-      console.log(error);
       if (error) {
-        document.querySelector("#widgetError").style.transform =
-          "translateY(0px)";
-        document.querySelector("#widgetError").style.visibility = "visible";
-        loader.classList.toggle("loaderHidden");
-
-        setTimeout(() => {
-          document.querySelector("#widgetError").style.transform =
-            "translateY(-350%)";
-          document.querySelector("#widgetError").style.visibility = "hidden";
-        }, 4000);
+        errorDataDisplay();
       }
+    })
+    .finally(() => {
+      loader.classList.toggle("loaderHidden");
     });
 };
 
@@ -132,4 +122,14 @@ const getSvg = (data) => {
       svgImg.src = "animated/cloudy-day-1.svg";
       body.style.backgroundImage = "url(assets/clear.jpg)";
   }
+};
+const errorDataDisplay = () => {
+  document.querySelector("#widgetError").style.transform = "translateY(0px)";
+  document.querySelector("#widgetError").style.visibility = "visible";
+
+  setTimeout(() => {
+    document.querySelector("#widgetError").style.transform =
+      "translateY(-350%)";
+    document.querySelector("#widgetError").style.visibility = "hidden";
+  }, 4000);
 };
